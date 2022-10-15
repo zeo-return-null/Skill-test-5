@@ -68,5 +68,18 @@
       },
       "messageId": "<a0e5ded0-b9f0-407d-9774-6e7bb6acefc5@gmail.com>"
     }
+  ],
+  "users": [
+    {
+      "name": "Juan",
+      "email": "mostrojuan@mail.com",
+      "password": "12345"
+    },
+    {
+      "name": "Juan",
+      "email": "mostrojuan@mail.com",
+      "password": "12345",
+      "id": "387c83d9-fe59-494a-abd6-108c4d04b1b9"
+    }
   ]
 }

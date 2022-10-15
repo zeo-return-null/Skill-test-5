@@ -11,6 +11,7 @@ import { PORT } from "./config.js";
 
 // Import routes
 import mailRoute from "./routes/mail.routes.js";
+import usersRoute from "./routes/users.routes.js";
 
 const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
 
@@ -41,6 +42,7 @@ app.set("view engine", "hbs");
 
 // Set routes
 app.use("/mail", mailRoute);
+app.use("/users", usersRoute);
 
 app.get("/home", (req, res) => {
   res.send("Home");
