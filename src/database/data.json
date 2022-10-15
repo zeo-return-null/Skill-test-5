@@ -1,0 +1,72 @@
+{
+  "mails": [
+    {
+      "accepted": [
+        "cjfsepu@gmail.com"
+      ],
+      "rejected": [],
+      "envelopeTime": 618,
+      "messageTime": 499,
+      "messageSize": 548,
+      "response": "250 2.0.0 OK  1665792928 v81-20020aca6154000000b0034fc91dbd7bsm1653172oib.58 - gsmtp",
+      "envelope": {
+        "from": "cjfsepu@gmail.com",
+        "to": [
+          "cjfsepu@gmail.com"
+        ]
+      },
+      "messageId": "<0966e331-e07a-3cbd-65f8-7975a5b4b5e7@gmail.com>"
+    },
+    {
+      "accepted": [
+        "cjfsepu@gmail.com"
+      ],
+      "rejected": [],
+      "envelopeTime": 628,
+      "messageTime": 498,
+      "messageSize": 569,
+      "response": "250 2.0.0 OK  1665793170 h61-20020a9d2f43000000b00661948e6119sm1898998otb.47 - gsmtp",
+      "envelope": {
+        "from": "cjfsepu@gmail.com",
+        "to": [
+          "cjfsepu@gmail.com"
+        ]
+      },
+      "messageId": "<c13e4ac1-4738-dc42-9ec7-3c209f619a1c@gmail.com>"
+    },
+    {
+      "accepted": [
+        "cjfsepu@gmail.com"
+      ],
+      "rejected": [],
+      "envelopeTime": 734,
+      "messageTime": 512,
+      "messageSize": 569,
+      "response": "250 2.0.0 OK  1665793175 l8-20020a4a2708000000b004806f494d2fsm1541432oof.11 - gsmtp",
+      "envelope": {
+        "from": "cjfsepu@gmail.com",
+        "to": [
+          "cjfsepu@gmail.com"
+        ]
+      },
+      "messageId": "<cc45699b-8b2a-7efa-2af0-41db33f9313c@gmail.com>"
+    },
+    {
+      "accepted": [
+        "cjfsepu@gmail.com"
+      ],
+      "rejected": [],
+      "envelopeTime": 716,
+      "messageTime": 512,
+      "messageSize": 569,
+      "response": "250 2.0.0 OK  1665793178 d24-20020a056830045800b006618b23df05sm1866403otc.21 - gsmtp",
+      "envelope": {
+        "from": "cjfsepu@gmail.com",
+        "to": [
+          "cjfsepu@gmail.com"
+        ]
+      },
+      "messageId": "<a0e5ded0-b9f0-407d-9774-6e7bb6acefc5@gmail.com>"
+    }
+  ]
+}

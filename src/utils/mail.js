@@ -1,4 +1,5 @@
 import nodemailer from "nodemailer";
+import { GMAIL_USER, GMAIL_PASSWORD } from "../config.js";
 
 const user = await nodemailer.createTestAccount();
 

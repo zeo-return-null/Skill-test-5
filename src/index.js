@@ -7,19 +7,17 @@ import * as url from "url";
 import { engine } from "express-handlebars";
 import cors from "cors";
 import sockets from "./sockets.server.js";
+import { PORT } from "./config.js";
 
 // Import routes
 import mailRoute from "./routes/mail.routes.js";
 
-
 const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
 
+// Start express, http and socket server 
 const app = express();
 const httpServer = HttpServer(app);
 const io = new SocketServer(httpServer);
-
-
-const views_path = path.join(__dirname, "views");
 
 // Set middlewares
 app.use(cors());
@@ -27,6 +25,8 @@ app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(morgan("dev"));
+
+const views_path = path.join(__dirname, "views");
 
 // Set template engine
 app.engine(
@@ -51,7 +51,6 @@ app.use("*", (req, res) => {
 });
 
 sockets(io);
-
 
 app.listen(PORT, () => {
   console.log(`Server levantado en el puerto ${PORT}`);
