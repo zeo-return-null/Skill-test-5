@@ -4,7 +4,6 @@ import { Server as SocketServer } from "socket.io";
 import morgan from "morgan";
 import path from "path";
 import * as url from "url";
-import { engine } from "express-handlebars";
 import cors from "cors";
 import sockets from "./sockets.server.js";
 import { PORT } from "./config.js";
@@ -22,34 +21,17 @@ const io = new SocketServer(httpServer);
 
 // Set middlewares
 app.use(cors());
-app.use(express.static("public"));
+app.use(express.static(__dirname + "public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(morgan("dev"));
-
-const views_path = path.join(__dirname, "views");
-
-// Set template engine
-app.engine(
-  "hbs",
-  engine({
-    extname: ".hbs",
-    defaultLayout: "index.hbs",
-  })
-);
-app.set("views", views_path);
-app.set("view engine", "hbs");
 
 // Set routes
 app.use("/mail", mailRoute);
 app.use("/users", usersRoute);
 
-app.get("/home", (req, res) => {
-  res.send("Home");
-});
-
 app.use("*", (req, res) => {
-  res.redirect("/home");
+  res.redirect("/");
 });
 
 sockets(io);
