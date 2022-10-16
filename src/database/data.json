@@ -67,6 +67,57 @@
         ]
       },
       "messageId": "<a0e5ded0-b9f0-407d-9774-6e7bb6acefc5@gmail.com>"
+    },
+    {
+      "accepted": [
+        "cjfsepu@gmail.com"
+      ],
+      "rejected": [],
+      "envelopeTime": 1441,
+      "messageTime": 842,
+      "messageSize": 567,
+      "response": "250 2.0.0 OK  1665855200 z11-20020a4ad58b000000b0047ed75e4d61sm2333875oos.7 - gsmtp",
+      "envelope": {
+        "from": "cjfsepu@gmail.com",
+        "to": [
+          "cjfsepu@gmail.com"
+        ]
+      },
+      "messageId": "<86b2d55a-e600-f8a2-12b8-c2518262dce1@gmail.com>"
+    },
+    {
+      "accepted": [
+        "cjfsepu@gmail.com"
+      ],
+      "rejected": [],
+      "envelopeTime": 1019,
+      "messageTime": 1024,
+      "messageSize": 567,
+      "response": "250 2.0.0 OK  1665855207 r10-20020a4a964a000000b00435a59fba01sm2350272ooi.47 - gsmtp",
+      "envelope": {
+        "from": "cjfsepu@gmail.com",
+        "to": [
+          "cjfsepu@gmail.com"
+        ]
+      },
+      "messageId": "<8a8443e8-044d-d0da-da33-5ff1e56cb321@gmail.com>"
+    },
+    {
+      "accepted": [
+        "cjfsepu@gmail.com"
+      ],
+      "rejected": [],
+      "envelopeTime": 1102,
+      "messageTime": 1312,
+      "messageSize": 567,
+      "response": "250 2.0.0 OK  1665855232 f10-20020a056830204a00b00661b019accbsm2707915otp.3 - gsmtp",
+      "envelope": {
+        "from": "cjfsepu@gmail.com",
+        "to": [
+          "cjfsepu@gmail.com"
+        ]
+      },
+      "messageId": "<4b5bd09b-c2ab-16c8-801c-9d8d4f1b5222@gmail.com>"
     }
   ],
   "users": [
@@ -80,6 +131,18 @@
       "email": "mostrojuan@mail.com",
       "password": "12345",
       "id": "387c83d9-fe59-494a-abd6-108c4d04b1b9"
+    },
+    {
+      "name": "Maria",
+      "email": "maria@mail.com",
+      "encryptedPassword": {},
+      "id": "a49f40c6-23d4-4a71-b61b-b8547b5160fa"
+    },
+    {
+      "name": "Maria",
+      "email": "maria@mail.com",
+      "encryptedPassword": "$2b$08$C7cZij9bodwLqhyc1dxLwuA8Kj.bNJhyQjxWjqsioKUO0EdeOitxC",
+      "id": "4ad8ecfd-a49e-46ab-a93e-9b6359fa83a3"
     }
   ]
 }

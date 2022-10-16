@@ -1,19 +1,30 @@
-import * as user from "../services/users.services.js";
+import * as userServices from "../services/users.services.js";
+import { encryptPassword } from "../utils/encrypt.js";
 
 export const getAllUsers = async (req, res) => {
-  const allUsers = await user.getAllUsers();
+  const allUsers = await userServices.getAllUsers();
   res.status(200).json({ users: allUsers });
 };
 
-export const getUser = async (req, res) => {
+export const getUserById = async (req, res) => {
   const { userId } = req.params;
-  const user = await user.getUser(userId);
+  const users = await userServices.getUserById(userId);
 
-  if (!user) {
-    return res.status(404).json({ error: "No se encontro el usuario" });
+  if (!users) {
+    return res.status(404).json({ error: "No se encontro el usuario por Id" });
   }
-  res.status(200).json(user);
+  res.status(200).json(users);
 };
+
+export const getUserByEmail = async (req, res) => {
+  const { email } = req.params;
+  const users  = await userServices.getUserByEmail(email);
+
+  if (!users) {
+    return res.status(404).json({ error: "No se encontro el usuario por email " + email });
+  }
+  res.status(200).json(users);
+}
 
 export const createUser = async (req, res) => {
   const { name, email, password } = req.body;
@@ -26,13 +37,15 @@ export const createUser = async (req, res) => {
       });
   }
 
+  const encryptedPassword = await encryptPassword(password);
+
   const newUser = {
     name,
     email,
-    password,
+    encryptedPassword,
   };
 
-  const createdUser = await user.createUser(newUser);
+  const createdUser = await userServices.createUser(newUser);
 
   res.status(201).json(createdUser);
 };
@@ -53,13 +66,13 @@ export const updateUser = async (req, res) => {
     newData.password = password;
   }
 
-  const updatedUser = await user.updateUser(userId, newData);
+  const updatedUser = await userServices.updateUser(userId, newData);
 
   res.status(200).json(updatedUser);
 };
 
 export const deleteUser = async (req, res) => {
   const { userId } = req.params;
-  const deletedUser = await user.deleteUser(userId);
+  const deletedUser = await userServices.deleteUser(userId);
   res.status(200).json(deletedUser);
 };
