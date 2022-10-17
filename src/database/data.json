@@ -118,6 +118,23 @@
         ]
       },
       "messageId": "<4b5bd09b-c2ab-16c8-801c-9d8d4f1b5222@gmail.com>"
+    },
+    {
+      "accepted": [
+        "cjfsepu@gmail.com"
+      ],
+      "rejected": [],
+      "envelopeTime": 817,
+      "messageTime": 718,
+      "messageSize": 570,
+      "response": "250 2.0.0 OK  1665968355 z20-20020a056870739400b00127c03b39cesm4248791oam.35 - gsmtp",
+      "envelope": {
+        "from": "cjfsepu@gmail.com",
+        "to": [
+          "cjfsepu@gmail.com"
+        ]
+      },
+      "messageId": "<60afecab-d24a-477d-e71a-0fac66419ca0@gmail.com>"
     }
   ],
   "users": [
