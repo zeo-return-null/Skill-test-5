@@ -36,6 +36,6 @@ app.use("*", (req, res) => {
 
 sockets(io);
 
-app.listen(PORT, () => {
+httpServer.listen(PORT, () => {
   console.log(`Server levantado en el puerto ${PORT}`);
 });
