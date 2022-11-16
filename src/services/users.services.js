@@ -13,7 +13,7 @@ export const getUserById = async (userId) => {
 export const getUserByEmail = async (email) => {
   const user = await userModel.getUserByEmail(email);
   return user;
-}
+};
 
 export const createUser = async (userData) => {
   const newUser = await userModel.createUser(userData);

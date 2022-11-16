@@ -57,10 +57,4 @@ const saveMessageToLog = async (room, user, message) => {
   await fs.appendFile(filePathToLogChats, messageInLog);
 };
 
-export {
-  readFromDb,
-  writeToDb,
-  readHistory,
-  writeHistory,
-  saveMessageToLog,
-};
+export { readFromDb, writeToDb, readHistory, writeHistory, saveMessageToLog };

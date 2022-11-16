@@ -2,15 +2,18 @@ import {
   userJoin,
   userLeave,
   getRooms,
-  getUsersInRoom,
+  getRoomUsers,
   getCurrentUser,
   formatMessage,
 } from "./utils/sockets.users.js";
+
 import {
   readHistory,
   writeHistory,
   saveMessageToLog,
 } from "./utils/database.js";
+
+const server = "Aviso";
 
 export default (io) => {
   io.on("connection", async (socket) => {
@@ -19,66 +22,66 @@ export default (io) => {
     io.emit("get:rooms", { rooms });
 
     socket.on("connect:room", async ({ user, room }) => {
-      userJoin(socket.id, user, room);
+      userJoin(user, socket.id, room);
       socket.join(room);
+      const history = await readHistory();
 
-      const chatHistory = await readHistory();
-      if (!chatHistory.hasOwnProperty(room)) {
-        chatHistory[room] = [];
+      if (!history.hasOwnProperty(room)) {
+        history[room] = [];
       }
 
-      socket.emit("room:get-all-messages", chatHistory[room]);
+      socket.emit("room:get-messages", history[room]);
 
       socket.emit(
         "room:message",
-        formatMessage("Servidor: ", "Te has unido a la sala " + room)
+        formatMessage(server, `has entrado a la sala ${room}`)
       );
 
       socket.broadcast
         .to(room)
         .emit(
           "room:message",
-          formatMessage(
-            "Servidor: ",
-            "Se ha unido a la sala el usuario " + user.name
-          )
+          formatMessage(server, `${user.user} se unio a la sala`)
         );
 
-      io.to(room).emit("room:users", { room, users: getUsersInRoom(room) });
+      io.to(room).emit("room:users", {
+        room,
+        users: getRoomUsers(room),
+      });
 
       const rooms = getRooms();
 
       io.emit("get:rooms", { rooms });
     });
 
-    socket.on("room:message", async (message) => {
+    socket.on("room:send-message", async (message) => {
       const user = getCurrentUser(socket.id);
-      const formatedMessage = formatMessage(user.name, message);
-      const chatHistory = await readHistory();
+      const formatedMessage = formatMessage(user.user, message);
+      const history = await readHistory();
 
-      if (!chatHistory.hasOwnProperty(user.room)) {
-        chatHistory[user.room] = [];
+      if (!history.hasOwnProperty(user.room)) {
+        history[user.room] = [];
       }
 
-      chatHistory[user.room].push(formatedMessage);
-      await writeHistory(chatHistory);
-      await saveMessageToLog(formatedMessage);
+      history[user.room].push(formatedMessage);
+
+      await writeHistory(history);
+      await saveMessageToLog(user.room, user.user, message);
 
       io.to(user.room).emit("room:message", formatedMessage);
     });
 
     socket.on("disconnect", () => {
       const user = userLeave(socket.id);
-
       if (user) {
         io.to(user.room).emit(
           "room:message",
-          formatMessage("Servidor: ", `El usuario ${user} se ha desconectado.`)
+          formatMessage(server, `${user.user} se ha desconectado`)
         );
 
         io.to(user.room).emit("room:users", {
           room: user.room,
-          users: getUsersInRoom(user.rooms),
+          users: getRoomUsers(user.room),
         });
       }
     });

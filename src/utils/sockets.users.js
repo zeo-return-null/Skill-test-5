@@ -1,52 +1,37 @@
 const users = [];
 
-const userJoin = (id, user, room) => {
-  const newUser = { ...id, user, room };
-  users.push(newUpser);
+export const userJoin = (user, id, room) => {
+  const newUser = { ...user, id, room };
+  users.push(newUser);
   return newUser;
 };
 
-const userLeave = (id) => {
+export const userLeave = (id) => {
   const userIndex = users.findIndex((user) => user.id === id);
-
   if (userIndex !== -1) {
     return users.splice(userIndex, 1)[0];
   }
 };
 
-const getRooms = () => {
+export const getRooms = () => {
   const rooms = users.map((user) => user.room);
   const uniqueRooms = [...new Set(rooms)];
-
   return uniqueRooms;
 };
 
-const getUsersInRoom = (room) => {
-  const users = users.filter((user) => user.room === room);
-  return users;
+export const getRoomUsers = (room) => {
+  return users.filter((user) => user.room === room);
 };
 
-const getCurrentUser = (id) => {
-  const user = users.find((user) => user.id === id);
-  return user;
+export const getCurrentUser = (id) => {
+  return users.find((user) => user.id === id);
 };
 
-const formatMessage = (user, text) => {
-  const time = new Date().toLocaleDateString();
-
+export const formatMessage = (user, text) => {
+  const time = new Date().toLocaleString();
   return {
     user,
     text,
     time,
   };
-};
-
-
-export {
-  userJoin,
-  userLeave,
-  getRooms,
-  getUsersInRoom,
-  getCurrentUser,
-  formatMessage,
 };

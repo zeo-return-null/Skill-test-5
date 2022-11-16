@@ -160,6 +160,18 @@
       "email": "maria@mail.com",
       "encryptedPassword": "$2b$08$C7cZij9bodwLqhyc1dxLwuA8Kj.bNJhyQjxWjqsioKUO0EdeOitxC",
       "id": "4ad8ecfd-a49e-46ab-a93e-9b6359fa83a3"
+    },
+    {
+      "user": "test",
+      "email": "test@mail.com",
+      "password": "$2b$08$ejy4LuVPFoFVQaYOcDo1kuVOwrMzINMxNX95fzhLyfWshxoHKQa.y",
+      "id": "417a1cf9-089b-4dc2-97ee-bfe16e351f98"
+    },
+    {
+      "user": "test1",
+      "email": "testa@mail.com",
+      "password": "$2b$08$Ur4Bh0NHMp5YvVHIFxw//OS2o/VWMQKXIHuw.S24fMg57gICxVEce",
+      "id": "08069b68-29ae-4c25-af56-fc1e1f462d7d"
     }
   ]
 }

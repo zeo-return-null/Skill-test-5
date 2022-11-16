@@ -1,29 +1,30 @@
-// Llamar a nuestra de /mail con fetch()
+const accessToken = localStorage.getItem("access_token");
+const userLogout = document.getElementById("user-logout");
 
-// const datos = await fetch("/mail")
+const logout = () => {
+  localStorage.removeItem("access_token");
+  window.location = "/";
+};
 
-// datos.map(dato => {
-//     contenedor.innerHTML += `
-//         <h3>Remitente: ${dato.envelope.from}<h3>
-//     `
-// })
+if (accessToken) {
+  userLogout.classList.remove("visually-hidden");
+}
 
 // Obtener informacion del formulario
-const formMail = document.getElementById("mail-form")
-
-formMail.addEventListener("submit", e => {
+const formMail = document.getElementById("mail-form");
+formMail.addEventListener("submit", (e) => {
   e.preventDefault();
 
   const mailData = new FormData(e.target);
   const newMail = {
     from: mailData.get("from"),
-  to: mailData.get("to"),
+    to: mailData.get("to"),
     subject: mailData.get("subject"),
     text: mailData.get("text"),
     html: mailData.get("text-html"),
   };
 
-  // Post a la ruta de mail con los datos del formulario 
+  // Post a la ruta de mail con los datos del formulario
   fetch("/mail", {
     method: "post",
     headers: {
@@ -34,7 +35,7 @@ formMail.addEventListener("submit", e => {
     .then(() => {
       e.target.reset();
     })
-    .catch(error => {
+    .catch((error) => {
       console.error(error);
     });
 });
